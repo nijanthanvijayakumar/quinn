@@ -1,11 +1,8 @@
 license:
   type: Apache-2.0
-  exclude:
-    - poetry.lock
+  copyright-owner: Apache Software Foundation
   header:
-    paths:
-      - "**/*.py"
-    text: |
+    content: |
       Licensed to the Apache Software Foundation (ASF) under one or more
       contributor license agreements.  See the NOTICE file distributed with
       this work for additional information regarding copyright ownership.
@@ -18,3 +15,8 @@ license:
       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
       See the License for the specific language governing permissions and
       limitations under the License.
+  paths-ignore:
+    - 'tests/**'
+    - 'poetry.lock'
+  paths:
+    - "**/*.py"

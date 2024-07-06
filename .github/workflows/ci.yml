@@ -90,14 +90,14 @@ jobs:
 
   check-license-headers:
     runs-on: ubuntu-latest
-    needs: test
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python 3.9
-        uses: actions/setup-python@v2
         with:
-          python-version: 3.9
-      - name: Install skywalking-eyes
-        run: pip install apache-skywalking-eyes
-      - name: Check license headers
-        run: skywalking-eyes header check
+          fetch-depth: 0
+
+      - name: Check License Header
+        uses: apache/skywalking-eyes/dependency@main
+        with:
+          log: debug
+          config: .licenserc.yaml
+          mode: check
