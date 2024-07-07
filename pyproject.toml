@@ -6,7 +6,6 @@ authors = ["MrPowers <matthewkevinpowers@gmail.com>"]
 
 # Maintainers of the project
 maintainers = [
-    "MrPowers <matthewkevinpowers@gmail.com>",
     "SemyonSinchenko <ssinchenko@apache.org>"
 ]
 
