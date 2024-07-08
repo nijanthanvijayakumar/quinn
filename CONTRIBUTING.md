@@ -74,11 +74,40 @@ This project follows the [PySpark style guide](https://github.com/MrPowers/spark
 """
 ```
 
-We are using `isort`, `black` and `ruff` as linters. You can find instructions on how to set up and use these tools here:
+We are using `isort` and `ruff` as linters. You can find instructions on how to set up and use these tools here:
 
 1. [isort](https://pycqa.github.io/isort/)
-2. [black](https://black.readthedocs.io/en/stable/)
-3. [ruff](https://github.com/charliermarsh/ruff)
+2. [ruff](https://github.com/charliermarsh/ruff)
+
+### Adding ruff to IDEs
+
+#### VSCode
+
+1. Install the `Ruff` extension from the VSCode marketplace.
+2. Open the command palette (Ctrl+Shift+P) and select `Preferences: Open Settings (JSON)`.
+3. Add the following configuration to your settings.json file:
+
+```json
+{
+    "python.linting.ruffEnabled": true,
+    "python.linting.enabled": true,
+    "python.formatting.provider": "none",
+    "editor.formatOnSave": true
+}
+```
+
+#### PyCharm
+
+1. Open the `Preferences` window (Ctrl+Alt+S).
+2. Navigate to `Tools` > `External Tools`.
+3. Click the `+` icon to add a new external tool.
+4. Fill in the following details:
+   - Name: `Ruff`
+   - Program: `path/to/ruff` (replace with the path to your ruff executable)
+   - Arguments: `check --fix $FilePathRelativeToProjectRoot$`
+   - Working directory: `$ProjectFileDir$`
+5. Click `OK` to save the configuration.
+6. To run Ruff, right-click on a file or directory in the project view, select `External Tools`, and then select `Ruff`.
 
 ### Pull Request
 
