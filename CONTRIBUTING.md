@@ -159,3 +159,11 @@ When you're finished with the changes, create a pull request, also known as a PR
 - Don't forget to link PR to the issue if you are solving one.
 - As you update your PR and apply changes, mark each conversation as resolved.
 - If you run into any merge issues, checkout this [git tutorial](https://github.com/skills/resolve-merge-conflicts) to help you resolve merge conflicts and other issues.
+
+### Release Process
+
+We use `release-please` to automate the release process. The release process includes generating and updating the CHANGELOG automatically, including contributor handles/names.
+
+#### Commit Message Guidelines
+
+To ensure that `release-please` can correctly generate the CHANGELOG and determine the version number, please follow the commit message guidelines specified [here](https://github.com/googleapis/release-please?tab=readme-ov-file#how-should-i-write-my-commits).

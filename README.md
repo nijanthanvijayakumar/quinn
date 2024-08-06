@@ -538,3 +538,7 @@ We are using [PySpark code-style](https://github.com/MrPowers/spark-style-guide/
 :rtype: [ReturnType]
 """
 ```
+
+### Release Process
+
+We use `release-please` to automate the release process. The release process includes generating and updating the CHANGELOG automatically, including contributor handles/names. For more details, refer to the release-please section in the CONTRIBUTING.md file.
