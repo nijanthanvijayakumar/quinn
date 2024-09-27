@@ -28,7 +28,7 @@ import uuid
 from typing import Any
 
 import pyspark.sql.functions as F  # noqa: N812
-from pyspark.sql.functions import lit, trim, when
+from pyspark.sql.functions import lit, trim, when, last_day
 from pyspark.sql.types import (
     BooleanType,
 )
@@ -368,3 +368,23 @@ def null_between(col: Column, lower: Column, upper: Column) -> Column:
             ),
         ),
     )
+
+
+def beginning_of_month(col: Column) -> Column:
+    """Returns the first day of the month for a given date.
+
+    :param col: Column object
+    :return: Column object
+    :rtype: Column
+    """
+    return F.trunc(col, "month")
+
+
+def end_of_month(col: Column) -> Column:
+    """Returns the last day of the month for a given date using PySpark's last_day function.
+
+    :param col: Column object
+    :return: Column object
+    :rtype: Column
+    """
+    return last_day(col)

@@ -477,3 +477,47 @@ def test_null_between():
         "is_between", quinn.null_between(F.col("age"), F.col("lower_age"), F.col("upper_age"))
     )
     chispa.assert_column_equality(actual_df, "is_between", "expected")
+
+
+def test_beginning_of_month():
+    df = quinn.create_df(
+        spark,
+        [
+            (datetime.datetime(2020, 12, 23), datetime.datetime(2020, 12, 1)),
+            (datetime.datetime(2021, 1, 5), datetime.datetime(2021, 1, 1)),
+            (datetime.datetime(2019, 1, 5), datetime.datetime(2019, 1, 1)),
+            (datetime.datetime(2020, 12, 1), datetime.datetime(2020, 12, 1)),
+            (None, None),
+        ],
+        [
+            ("some_date", DateType(), True),
+            ("expected", DateType(), True),
+        ],
+    )
+    actual_df = df.withColumn(
+        "beginning_of_month",
+        quinn.beginning_of_month(F.col("some_date")),
+    )
+    chispa.assert_column_equality(actual_df, "beginning_of_month", "expected")
+
+
+def test_end_of_month():
+    df = quinn.create_df(
+        spark,
+        [
+            (datetime.datetime(2020, 12, 23), datetime.datetime(2020, 12, 31)),
+            (datetime.datetime(2021, 1, 5), datetime.datetime(2021, 1, 31)),
+            (datetime.datetime(2019, 1, 5), datetime.datetime(2019, 1, 31)),
+            (datetime.datetime(2020, 12, 1), datetime.datetime(2020, 12, 31)),
+            (None, None),
+        ],
+        [
+            ("some_date", DateType(), True),
+            ("expected", DateType(), True),
+        ],
+    )
+    actual_df = df.withColumn(
+        "end_of_month",
+        quinn.end_of_month(F.col("some_date")),
+    )
+    chispa.assert_column_equality(actual_df, "end_of_month", "expected")

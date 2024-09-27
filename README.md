@@ -221,6 +221,28 @@ The output is :=
 
 ```
 
+**beginning_of_month()**
+
+Returns the first day of the month for a given date.
+
+```python
+actual_df = source_df.withColumn(
+    "beginning_of_month",
+    quinn.beginning_of_month(col("some_date"))
+)
+```
+
+**end_of_month()**
+
+Returns the last day of the month for a given date using PySpark's last_day function.
+
+```python
+actual_df = source_df.withColumn(
+    "end_of_month",
+    quinn.end_of_month(col("some_date"))
+)
+```
+
 ### Transformations
 
 **snake_case_col_names()**
